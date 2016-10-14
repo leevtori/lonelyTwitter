@@ -77,6 +77,7 @@ public class LonelyTwitterActivity extends Activity {
 					public void onItemClick(AdapterView<?> parent, View view,
 											int position ,long id){
 						Intent intent = new Intent(activity, EditTweetActivity.class);
+						intent.putExtra(tweetList.get(position).getMessage(), "tweet");
 						startActivity(intent);
 					}
 
@@ -107,9 +108,9 @@ public class LonelyTwitterActivity extends Activity {
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			tweetList = new ArrayList<Tweet>();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			throw new RuntimeException();
+			//throw new RuntimeException();
 		}
 	}
 
